@@ -1,0 +1,37 @@
+@controller
+
+
+
+/*Por hora, não estou utilizando os recursos de sessão do spring, mas fazendo minhas próprias validações por idUsuario*/
+
+
+/* Método que realiza o login */
+@RequestMapping(value = "/login", method=RequestMethod.GET)
+public session login(string usuario, string senha){
+	Hybernate login = new Hybernate();
+	int idUsuario = 0;
+	idUsuario = login.login(this.usuario, this.senha) //retorna 0 se não logar, e o id se logar.
+	return idUsuario;
+}
+
+/* Método que insere uma nova vacina no cartão do usuário */
+@RequestMapping(value="/addVacina", method=RequestMethod.GET)
+public int insereVacina(int idUsuario, int idVacina, string dataVacina, string nomeMedico){
+	Hybernate insereVacina = new Hybernate();
+	int verificaInsercao = 0;
+	verificaInsercao = insereVacina(idUsuario, idVacina, dataVacina, nomeMedico); //retorna 0 se não inserir, e 1 se inserir.
+	return verificaInsercao;	
+}
+
+
+/* Método que insere uma nova carteira de vacinação no painel do usuário. */  
+@RequestMapping(value="/addCarteira", method=RequestMethod.GET)
+public int insereCarteira(int idUsuario, string cartaoSUS, string nomePessoa, date dataNascimento)}
+	Hybernate insereCarteira = new Hybernate();
+	int verificaInsercao = 0;
+	verificaInsercao = insereCarteira(idUsuario, cartaoSUS, nomePessoa, datanascimento); //retorna 0 se não inserir, e 1 se inserir.
+	return verificaInsercao;
+}
+
+
+
